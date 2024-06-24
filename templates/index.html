@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿智学堂</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f9f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .carousel {
+            position: relative;
+            max-width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .carousel img {
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        .carousel .prev {
+            left: 10px;
+        }
+        .carousel .next {
+            right: 10px;
+        }
+        .news-section {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 80%;
+            border-radius: 8px;
+        }
+        .news-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .news-content ul {
+            padding-left: 20px;
+        }
+        .news-content ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .modules {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 80%;
+            margin: 0 auto 40px auto;
+            gap: 20px;
+        }
+        .module {
+            background-color: #ffffff;
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .module:hover {
+            transform: translateY(-10px);
+        }
+        .module h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .module p {
+            color: #666;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .module {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .module {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>绿智学堂</h1>
+    </header>
+    <div class="carousel">
+        <img src="../static/images/image1.jpeg" class="active" alt="AI in Environment 1">
+        <img src="../static/images/image3.jpg" alt="AI in Environment 2">
+        <img src="../static/images/image4.jpg" alt="AI in Environment 3">
+        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <section class="news-section">
+        <div class="news-title">最近的新闻</div>
+        <div class="news-content">
+            <ul>
+                <li>新闻1：人工智能技术助力纺织业减少碳排放</li>
+                <li>新闻2：热电产业通过“人工智能+”技术实现节能减排</li>
+                <li>新闻3：智能包装系统推动食品加工领域的可持续发展</li>
+                <li>新闻4：精确农业技术让施肥更环保</li>
+                <li>新闻5：工业智能制造推动环保新进展</li>
+                <li>新闻6：人工智能在环境监测中的应用</li>
+            </ul>
+        </div>
+    </section>
+    <section class="modules">
+        <div class="module">
+            <h2>纺织业</h2>
+            <p>通过人工智能优化生产流程，减少能源消耗和废料产生，推动低碳转型。</p>
+        </div>
+        <div class="module">
+            <h2>农业</h2>
+            <p>智能农业系统利用大数据和机器学习，实现精确施肥和智能灌溉，减少资源浪费。</p>
+        </div>
+        <div class="module">
+            <h2>工业</h2>
+            <p>人工智能在原材料工业中的应用，优化生产流程，减少资源消耗和废物排放。</p>
+        </div>
+        <div class="module">
+            <h2>食品包装</h2>
+            <p>智能包装系统根据食品特性和运输条件，减少包装材料的浪费和环境污染。</p>
+        </div>
+        <div class="module">
+            <h2>热电产业</h2>
+            <p>通过智能化控制系统，提高能源效率和减少排放，实现节能减排目标。</p>
+        </div>
+        <div class="module">
+            <h2>环境监测</h2>
+            <p>人工智能技术在环境监测中的应用，实时监测和分析环境数据，促进环保决策。</p>
+        </div>
+    </section>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        const totalSlides = slides.length;
+
+        function showSlide(slideIndex) {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
