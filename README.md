@@ -5,19 +5,15 @@
 
 ## 系统框架
 本系统基于Html+Flask+Mysql框架
-- static：存放各种图片及专辑音频等静态资源
-- model: 实现后端各个功能
-- templates: 实现前端各个页面
-- app.py：连接前后端，实现交互功能
+- static：存放图片及存有文献信息的csv文件
+- templates: 实现前端各个页面，包括首页和检索结果页
+- app.py：连接前后端，实现检索功能
 
-## 数据库介绍
-主要从知网上下载了一些有关文章的题名、作者、日期、摘要、关键词等信息，建立了三个表
-- authors:作者
-- papers：文章
-- create:作者与文章间的创作关系
+## csv介绍
+从知网上以“人工智能 ？ 环保”为关键词下载了第一页中所有相关文章的题名、作者、单位、关键词等信息（？in [纺织，农业，工业，热电，食品包装，环境监测]）
+将所有结果拼接在一起建立了data.csv
 
 ## 运行方法
-- 需要安装以下的python包：Flask(backend)、Pymysql(connecting the backend and the database)
-- 数据库连接：在navicat或者mysql中运行全部的sql文件，修改data.py中有关db的username和password;
+- 需要安装以下的python包：Flask
 - 在编辑配置中新建编辑器如Flask Server，选择路径为app.py文件，
 - 运行得到网站的url，点击url即可在浏览器中登录该歌词系统

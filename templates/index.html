@@ -16,8 +16,20 @@
             background-color: #4CAF50;
             color: white;
             text-align: center;
-            padding: 1.5em 0;
+            padding: 0.015em 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .search-box {
+            max-width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-box input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
         .carousel {
             position: relative;
@@ -28,9 +40,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .carousel img {
-            width: 500px;
-            height: 300px;
-            margin: 0 auto;
+            width: 100%;
             display: none;
         }
         .carousel img.active {
@@ -79,15 +89,15 @@
         .modules {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-between;
             max-width: 80%;
             margin: 0 auto 40px auto;
             gap: 20px;
         }
         .module {
             background-color: #ffffff;
-            width: 30%;
-            margin: 10px;
+            width: 45%;
+            margin: 10px 0;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -96,6 +106,12 @@
         }
         .module:hover {
             transform: translateY(-10px);
+            background: #77b6796e;
+        }
+        .module-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
         .module h2 {
             font-size: 1.2em;
@@ -110,7 +126,7 @@
         }
         @media (max-width: 768px) {
             .module {
-                width: 45%;
+                width: 90%;
             }
         }
         @media (max-width: 480px) {
@@ -120,76 +136,75 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>绿智学堂</h1>
+        <h2>绿智学堂 The Green Smart Academy</h2>
     </header>
-    <div class="carousel">
-        <img src="../static/images/image1.jpeg" class="active" alt="AI in Environment 1">
-        <img src="../static/images/image3.jpg" alt="AI in Environment 2">
-        <img src="../static/images/image4.jpg" alt="AI in Environment 3">
-        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
-        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+     <div class="search-box">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="输入查询关键词">
+            <button type="submit">搜索</button>
+        </form>
     </div>
+
+
+<!--    <div class="carousel">-->
+<!--        <img src="../static/images/image1.jpeg" class="active" alt="AI in Environment 1">-->
+<!--        <img src="../static/images/image3.jpg" alt="AI in Environment 2">-->
+<!--        <img src="../static/images/image4.jpg" alt="AI in Environment 3">-->
+<!--        <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>-->
+<!--        <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>-->
+<!--    </div>-->
+
     <section class="news-section">
-        <div class="news-title">最近的新闻</div>
+        <div class="news-title">最新研究 Recent studies</div>
         <div class="news-content">
             <ul>
                 <li>新闻1：人工智能技术助力纺织业减少碳排放</li>
-                <li>新闻2：热电产业通过“人工智能+”技术实现节能减排</li>
-                <li>新闻3：智能包装系统推动食品加工领域的可持续发展</li>
-                <li>新闻4：精确农业技术让施肥更环保</li>
-                <li>新闻5：工业智能制造推动环保新进展</li>
+                <li>新闻2：精确农业技术让施肥更环保</li>
+                <li>新闻3：工业智能制造推动环保新进展</li>
+                <li>新闻4：热电产业通过“人工智能+”技术实现节能减排</li>
+                <li>新闻5：智能包装系统推动食品加工领域的可持续发展</li>
                 <li>新闻6：人工智能在环境监测中的应用</li>
             </ul>
         </div>
     </section>
     <section class="modules">
         <div class="module">
-            <h2>纺织业</h2>
-            <p>通过人工智能优化生产流程，减少能源消耗和废料产生，推动低碳转型。</p>
+            <a href="search?query=纺织" class="module-link">
+            <h2>纺织业 Textile Industry</h2>
+                <p>通过人工智能优化生产流程，减少能源消耗和废料产生，推动低碳转型。</p></a>
         </div>
         <div class="module">
-            <h2>农业</h2>
-            <p>智能农业系统利用大数据和机器学习，实现精确施肥和智能灌溉，减少资源浪费。</p>
+            <a href="search?query=农业" class="module-link">
+            <h2>农业 Agriculture</h2>
+                <p>智能农业系统利用大数据和机器学习，实现精确施肥和智能灌溉，减少资源浪费。</p></a>
         </div>
         <div class="module">
-            <h2>工业</h2>
-            <p>人工智能在原材料工业中的应用，优化生产流程，减少资源消耗和废物排放。</p>
+            <a href="search?query=工业" class="module-link">
+            <h2>传统工业 Traditional Industry</h2>
+                <p>人工智能在原材料工业中的应用，优化生产流程，减少资源消耗和废物排放。</p></a>
         </div>
         <div class="module">
-            <h2>食品包装</h2>
-            <p>智能包装系统根据食品特性和运输条件，减少包装材料的浪费和环境污染。</p>
+            <a href="search?query=热电" class="module-link">
+            <h2>热电产业 Thermoelectric Industry</h2>
+                <p>通过智能化控制系统，提高能源效率和减少排放，实现节能减排目标。</p></a>
         </div>
         <div class="module">
-            <h2>热电产业</h2>
-            <p>通过智能化控制系统，提高能源效率和减少排放，实现节能减排目标。</p>
+            <a href="search?query=包装" class="module-link">
+            <h2>食品包装 Food Packaging</h2>
+                <p>智能包装系统根据食品特性和运输条件，减少包装材料的浪费和环境污染。</p></a>
         </div>
         <div class="module">
-            <h2>环境监测</h2>
+            <a href="search?query=环境监测" class="module-link">
+            <h2>环境监测 Environmental Monitoring</h2>
             <p>人工智能技术在环境监测中的应用，实时监测和分析环境数据，促进环保决策。</p>
+            </a>
         </div>
+
+
     </section>
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel img');
-        const totalSlides = slides.length;
 
-        function showSlide(slideIndex) {
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === slideIndex);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-    </script>
 </body>
 </html>
